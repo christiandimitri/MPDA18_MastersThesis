@@ -1,0 +1,212 @@
+<h1 id="construction">Construction</h1>
+<p><em>PQ meshes</em> mhey must show different results from the mere geometry since the planarity of faces should obbey the goals in order to fulfil the basis properties of the <em>planar quad meshes</em> <span class="citation" data-cites="zadravec2010designing">[@zadravec2010designing]</span>.</p>
+<h2 id="pq-geometric-properties">PQ Geometric Properties</h2>
+<figure>
+<img src="MT_JPG/PQ%20Geometric%20Properties.png" alt="The hinge is affected by the high Gaussian curvature on the surface of the Yas Island Hotel By Zaha Hadid [@de2011technique]. The difference between PQ meshes and triangule meshes." id="fig:GoemetricPrincipals" /><figcaption>The hinge is affected by the high Gaussian curvature on the surface of the <em>Yas Island Hotel By Zaha Hadid</em> <span class="citation" data-cites="de2011technique">[@de2011technique]</span>. The difference between <em>PQ meshes</em> and <em>triangule meshes</em>.</figcaption>
+</figure>
+<p>Since a triangular face in space is always planar, then they are easier to deal with when the curvature is very high. The latter leads the quad panels to bend and the four vertices will want to move from the plane. Such constraint is a disadvantage for <em>PQ meshes</em> over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independant from its neighbouring face’s vertex see <span class="citation" data-cites="fig:GoemetricPrincipals">@fig:GoemetricPrincipals</span>.</p>
+<p>In theory two parallel vectors in space enclosed at each point by two other vectors not necesseraly parallel form a planar face, for more information refer to the author <span class="citation" data-cites="glymph2004parametric">[@glymph2004parametric]</span>. Consider each row of faces <span class="math inline"><em>f</em><sub><em>i</em>, <em>j</em></sub></span> is a PQ strip. PQ meshes are composed by vertices <span class="math inline"><strong>v</strong><sub><em>i</em>, <em>j</em></sub></span> with a valence <span class="math inline"> ± <em>k</em>/4(<em>k</em> ∈ <em>Z</em>)</span> where along each vertex a curve of family A and a curve of family B intersect see <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span>. N-geons can appear with a valence <span class="math inline"><em>k</em> ≠ 4</span> so called singularities.</p>
+<h2 id="benefits">Benefits</h2>
+<p><em>Planar quad</em> meshes are prefered over <em>triangule meshes</em> for aesthetical and constructional reasons. The advantages of <em>planar quads</em> meshes for construction over other meshes is that:</p>
+<ul>
+<li><em>PQ meshes</em> are less heavy.</li>
+<li><em>PQ meshes</em> are a less material use.</li>
+<li><em>PQ meshes</em> consumes less energy during fabrication.</li>
+</ul>
+<h2 id="metrics-measuresquality">Metrics-Measures(Quality)</h2>
+<p>To have <em>planar quads</em>, several measures are mentioned below. For a better quality, the mathematical measures and the conditions are classified by face and by mesh[<span class="citation" data-cites="fig:Measures">@fig:Measures</span>}. In addition to that, some conditions will be translated to <em>custom goals</em> that will improve the quality of the mesh.</p>
+<p>The measurements and conditions applied to the mesh itself are:</p>
+<figure>
+<img src="MT_JPG/Measurement.png" alt="Table showing the main different measures of PQ meshes see (@gokhale2008practical, @GEOMCHECK and @QuadQualityDefinitions)" id="fig:Measures" /><figcaption>Table showing the main different measures of PQ meshes see (<span class="citation" data-cites="gokhale2008practical">@gokhale2008practical</span>, <span class="citation" data-cites="GEOMCHECK">@GEOMCHECK</span> and <span class="citation" data-cites="QuadQualityDefinitions">@QuadQualityDefinitions</span>)</figcaption>
+</figure>
+<p>The measurements and conditions applied to the elements of the mesh are:</p>
+<h1 id="algorithmic-strategies">Algorithmic Strategies</h1>
+<h2 id="several-pre-processing-techniques">Several Pre-Processing Techniques</h2>
+<p>Several pre-processing techniques will be adapted in order to generate a <em>PQ mesh</em> with <em>planar faces</em>. The technique will be used depending on the surface type. Translational surfaces is an easy and fast algorithm. However architecture free-form surfaces with high curvature, requires more complex algorithm to generate <em>PQ meshes</em>.</p>
+<h3 id="translational-surfaces">Translational Surfaces</h3>
+<p>Translational surfaces are:</p>
+<ul>
+<li><p>Limited and easy to generate</p></li>
+<li>Planar 100%:
+<ul>
+<li>Proof: As describe in the planarity measure, the geometric principle of translational surfaces allows to succeed an ultimate planarity result on the panels.</li>
+</ul></li>
+<li>Homogeneous:
+<ul>
+<li>Proof: Another translational surfaces geometric principle is where the two parallel vectors enclosed by two others having the same length, reduces the variances between the panels.</li>
+</ul></li>
+</ul>
+<p>Translational surfaces admit a huge variety of shapes for a gridshell of quadrangular planar mesh see <span class="citation" data-cites="glymph2004parametric">[@glymph2004parametric]</span>. If the sectional curves are plane and the vectors are parallel having the same length the result will respond to the design principle of a translation surface. Assuming that one direction of the quad mesh net to be the sectional curve, two design principles can appear:</p>
+<ul>
+<li>The row of longitudinal sectional curves form parallel vectors.</li>
+<li>The row of lateral sectional curves form parallel vectors.</li>
+</ul>
+<h4 id="row-of-sectional-curves-translated-over-a-set-of-parallel-vectors">Row of sectional curves translated over a set of parallel vectors</h4>
+<p>The family of sectional curves <span class="math inline"><em>p</em>(<em>u</em>)</span> translated over a set of parallel vectors is generated as follow: A random spatial curve <span class="math inline"><em>p</em>(<em>v</em>)</span> called generatrix is translated against another random spatial curve <span class="math inline"><em>p</em><sub><em>u</em></sub></span> called directrix as seen in <span class="citation" data-cites="fig:TranslationPrinciples">[@fig:TranslationPrinciples]</span>. Thus considering that translation by equal length gives homogeneous results of the planar quads.</p>
+<figure>
+<img src="MT_JPG/Principals.png" alt="Geometric principle for translation surfaces and planarity measure fulfilled." id="fig:TranslationPrinciples" /><figcaption>Geometric principle for translation surfaces and planarity measure fulfilled.</figcaption>
+</figure>
+<p>Several gometrical shapes have been developped in architecture during the history using translation surfaces. The elliptical paraboloid is the most familiar shape found. It is generated using the same principal, translating one parabolic curve against another.</p>
+<p><img src="MT_JPG/Elliptical%20paraboloid.png" alt="Elliptical paraboloid" id="fig:EllipticalParaboloid" /> In translational surfaces, some geometrical shapes admit boolean and joining operations, for example, the hyperbolic paraboloid is a type of translational surfaces that acknowledge such operations. By translating a parabolic curve over a hyperbolic the result is as seen in <span class="citation" data-cites="fig:HyberbolicParaboloid">[@fig:HyberbolicParaboloid]</span></p>
+<figure>
+<img src="MT_JPG/hyperbolicparabolic.png" alt="Translated hyberbolic paraboloid and joining possibilities" id="fig:HyberbolicParaboloid" /><figcaption>Translated hyberbolic paraboloid and joining possibilities</figcaption>
+</figure>
+<h4 id="scale-translation-surfaces">Scale-Translation Surfaces</h4>
+<figure>
+<img src="MT_JPG/Scale%20translational@2x.png" alt="Centric scale-translation expansion" id="fig:ExpTrans" /><figcaption>Centric scale-translation expansion</figcaption>
+</figure>
+<p>Scale Translational surfaces are generating by adding a scale parameter to the output curves <span class="math inline"><em>C</em><sub><em>n</em></sub></span>. After translating the sectional curve <span class="math inline"><em>p</em>(<em>u</em>)</span> on each point <span class="math inline"><em>v</em><sub><em>i</em></sub></span> equally distant at the directrix curve <span class="math inline"><em>p</em>(<em>v</em>)</span> , the output curves can be scaled uniformly or non-uniformly controlled by the user. The centrical expansion of any curve gives a new curve having parallel edges. The center of expansion can be chosen randomly <span class="citation" data-cites="glymph2004parametric">[@glymph2004parametric]</span>. In this technique the centric expansion has been chosen. The resulting algorithm gives planar quad meshes see <span class="citation" data-cites="fig:ExpTrans">[@fig:ExpTrans]</span>.</p>
+<h3 id="conjugate-networks"><em>Conjugate Networks</em></h3>
+<p>Some curve networks are robust and efficient method to extract <em>PQ meshes</em> <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span>. Such method admit a huge variety of free-form surfaces. The advantage of designing a <em>conjugate direction field</em> is that the user possess freedom while controlling the <em>PQ mesh</em> layout <span class="citation" data-cites="zadravec2010designing">[@zadravec2010designing]</span>. Thus, the panels are flat and <em>discretize the principale curvature lines</em> see <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span>.</p>
+<figure>
+<img src="MT_JPG/Torsion%20Free.png" alt="Left: High twisting moment. Middle: Stiffening by triangulation. Right: Torsion free alignment.[@zadravec2010designing]" id="fig:torsionFree" /><figcaption>Left: High twisting moment. Middle: Stiffening by triangulation. Right: Torsion free alignment.<span class="citation" data-cites="zadravec2010designing">[@zadravec2010designing]</span></figcaption>
+</figure>
+<p>In addition to that, it can admit free torsion node while aligning the curve networks with the stress and curvature field see <span class="citation" data-cites="fig:torsionFree">[@fig:torsionFree]</span> for more information on statics sensitive layout refer to <span class="citation" data-cites="schiftner2010statics">[@schiftner2010statics]</span>.</p>
+<h4 id="what-is-a-cdf-on-a-triangular-mesh.">What is a CDF on a Triangular Mesh.</h4>
+<p>On a smooth surface <span class="math inline">$S \subset {\Bbb R}{^3},$</span> the tangent vectors <span class="math inline"><strong>v</strong><em></em><sub><em>p</em></sub>, <strong>w</strong><em></em><sub><em>p</em></sub></span> are conjugate if and only if they are treated as two vectors in <span class="math inline">${\Bbb R}{^3}$</span> <span class="citation" data-cites="liu2011general">[@liu2011general]</span>. The CDF is a tool for non-photorealistic rendering in order to visualize the surface topology. Therefore it is usefull for surface remeshing and alignement control. On a triangular face <span class="math inline"><em>f</em><em></em><sub><em>i</em></sub></span> as seen in <span class="citation" data-cites="fig:singleCDF">[@fig:singleCDF]</span> of a triangular mesh <span class="math inline">${\Bbb R}{^3}=(V,E,F)$</span> a CDF is:</p>
+<figure>
+<img src="MT_JPG\CDF%20on%20a%20triangle%20face.png" alt="A CDF on a Triangular face based on [@liu2011general]." id="fig:singleCDF" /><figcaption>A CDF on a Triangular face based on <span class="citation" data-cites="liu2011general">[@liu2011general]</span>.</figcaption>
+</figure>
+<ul>
+<li>Four vectors {<span class="math inline"><strong>v</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>w</strong><sub><strong>i</strong></sub><strong>.</strong> <strong>−</strong> <strong>v</strong><sub><strong>i</strong></sub> <strong>−</strong> <strong>w</strong><sub><strong>i</strong></sub></span>}</li>
+<li>Two scalar parameters {<span class="math inline"><em>θ</em><sub><em>i</em></sub>, <em>α</em><sub><em>i</em></sub></span>}:
+<ul>
+<li><span class="math inline"><em>θ</em><sub><em>i</em></sub></span> oriented angle between <span class="math inline"><em>e</em><sub><em>i</em>, 1</sub></span> and <span class="math inline"><strong>v</strong><sub><strong>i</strong></sub></span></li>
+<li><span class="math inline"><em>α</em><sub><em>i</em></sub></span> oriented angle between <span class="math inline"><strong>v</strong><sub><strong>i</strong></sub></span> and <span class="math inline"><strong>w</strong><sub><strong>i</strong></sub></span></li>
+<li>They define the following: <span class="math inline"><strong>v</strong><sub><strong>i</strong></sub> <strong>=</strong> <strong>(</strong><strong>c</strong><strong>o</strong><strong>s</strong><strong>θ</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>s</strong><strong>i</strong><strong>n</strong><strong>θ</strong><sub><strong>i</strong></sub><strong>)</strong><em></em><sup><em>T</em></sup></span> and <span class="math inline"><strong>w</strong><sub><strong>i</strong></sub> <strong>=</strong> <strong>(</strong><strong>c</strong><strong>o</strong><strong>s</strong><strong>(</strong><strong>θ</strong><sub><strong>i</strong></sub> <strong>+</strong> <strong>α</strong><sub><strong>i</strong></sub><strong>)</strong><strong>,</strong> <strong>s</strong><strong>i</strong><strong>n</strong><strong>(</strong><strong>θ</strong><sub><strong>i</strong></sub> <strong>+</strong> <strong>α</strong><sub><strong>i</strong></sub><strong>)</strong><em></em><sup><em>T</em></sup></span></li>
+</ul></li>
+</ul>
+<h4 id="the-relation-between-pq-meshes-and-conjugate-networks.">The relation between PQ meshes and Conjugate Networks.</h4>
+<p>Conjugate curve networks are families of curves <span class="math inline"><em>A</em>, <em>B</em> ⊂ <em>Φ</em></span>: For each <span class="math inline"><em>p</em> ∈ <em>Φ</em></span> unique curves of both family <span class="math inline"><em>A</em>, <em>B</em></span> should appear. Since <span class="math inline"><em>T</em><sub>1</sub>, <em>T</em><sub>2</sub></span> are conjugate then they predefine <span class="math inline"><em>A</em></span> and get <span class="math inline"><em>B</em></span> by <em>integrating the vector field directions conjugate of family <span class="math inline"><em>A</em></span></em>.<span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span></p>
+<p>Examples of Conjugate Curve Networks on Surfaces:</p>
+<ul>
+<li><p>Suited for PQ meshes: <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span></p>
+<ul>
+<li><em>The network of principle curvature lines</em> see (<span class="citation" data-cites="fig:conjugateNetworks">@fig:conjugateNetworks</span> left).</li>
+<li>In a translational surface of the form <span class="math inline"><em>p</em>(<em>u</em>, <em>v</em>)</span> <span class="math inline"><strong>p</strong>(<em>u</em>)</span> a sectional curve is translated along a another curve generatrix <span class="math inline"><strong>p</strong>(<em>v</em>)</span> and vice versa see <span class="citation" data-cites="fig:TranslationPrinciples">@fig:TranslationPrinciples</span>.</li>
+</ul></li>
+<li>Not suited for PQ meshes:
+<ul>
+<li><em>Epipolar curves</em>: The translation of a point <span class="math inline"><em>p</em></span> along a line <span class="math inline"><em>l</em></span> and the intersection of the planes threw the points <span class="math inline"><em>p</em>(<em>i</em>)</span> with that surface <span class="math inline"><em>Φ</em></span> generate asymptotic curves that are not suited for such meshing see (<span class="citation" data-cites="fig:conjugateNetworks">@fig:conjugateNetworks</span> center).</li>
+<li><em>Isophotic curves are conjugate to the system of the steepest descent curves with respect to the z-axis</em> see (<span class="citation" data-cites="fig:conjugateNetworks">@fig:conjugateNetworks</span> right).</li>
+</ul></li>
+</ul>
+<figure>
+<img src="MT_JPG/ExampleOfCurveNetworks.png" alt="Various Conjugate Networks" id="fig:conjugateNetworks" /><figcaption>Various Conjugate Networks</figcaption>
+</figure>
+<h4 id="generating-a-quad-dominant-mesh-via-a-conjugate-direction-field">Generating a Quad-Dominant mesh via a conjugate direction field</h4>
+<p>The input mesh should not be random, it is preferable to use a remeshing tool such as mesh machine to control the edges length and the fixed boundaries or others, for more info see <span class="citation" data-cites="MeshMachine">[@MeshMachine]</span>.</p>
+<h5 id="alignment-with-curvature-mueller2018optimized.">Alignment with curvature <span class="citation" data-cites="mueller2018optimized">[@mueller2018optimized]</span>.</h5>
+<figure>
+<img src="MT_JPG/principal%20directions.png" alt="Surface tangency extracted on each of the meshes \Bbb{R}^{3}_{i} by computing the minimum e_{1} and maximum e_{2} principal directions in red and blue." id="fig:PrincipalDirections" /><figcaption>Surface tangency extracted on each of the meshes <span class="math inline">$\Bbb{R}^{3}_{i}$</span> by computing the minimum <span class="math inline"><em>e</em><sub>1</sub></span> and maximum <span class="math inline"><em>e</em><sub>2</sub></span> <em>principal directions</em> in red and blue.</figcaption>
+</figure>
+<p>The quality of the mesh is always better when the panels are aligned with the curvature or the stress lines. Givin four different meshes <span class="math inline">$\Bbb{R}^{3}$</span>, the orthogonality will be introduced for each of the meshes <span class="math inline">$\Bbb{R}^{3}_{i}$</span> by computing the <em>principal directions</em> <span class="math inline"><em>e</em><sub>1</sub></span> and <span class="math inline"><em>e</em><sub>2</sub></span> and storing them in <span class="math inline">[<em>e</em><sub>1</sub>, <em>e</em><sub>2</sub>]</span> see <span class="citation" data-cites="fig:PrincipalDirections">@fig:PrincipalDirections</span>. This method has been used by <span class="citation" data-cites="liu2011general">[@liu2011general]</span>.</p>
+<h5 id="interpolating-vector-field-with-n-polyvector-field-mueller2018optimized.">Interpolating vector field with <em>N-PolyVector Field</em> <span class="citation" data-cites="mueller2018optimized">[@mueller2018optimized]</span>.</h5>
+<figure>
+<img src="MT_JPG/Interpolate%20Field.png" alt="Smoothed vector field using n-polyVector field algorithm," id="fig:npolyvectorfield" /><figcaption>Smoothed vector field using n-polyVector field algorithm,</figcaption>
+</figure>
+<p>In order to find a smoothed and well aligned vector field <span class="math inline">[<em>e</em><sub>1</sub>, <em>e</em><sub>2</sub>]</span> on each of the four meshes <span class="math inline">$\Bbb{R}^{3}$</span>, in this section a plugin called <span class="citation" data-cites="Capybara">[@Capybara]</span> developed by <span class="citation" data-cites="mueller2018optimized">[@mueller2018optimized]</span> has been used. The algorithm is based on finding the trade-off between neighboring faces <span class="math inline"><em>f</em><sub><em>i</em></sub></span> so that the parallel transport succeed. It uses the novel method proposed by <span class="citation" data-cites="diamanti2014designing">[@diamanti2014designing]</span> called <em>N-Poly Vector Field</em>. While selecting a subset of points [P<span class="math inline"><sub>𝕚</sub></span>], the vector field <span class="math inline">[<em>e</em><sub>1</sub>, <em>e</em><sub>2</sub>]</span> is able to be generated smoothly and continuously. It finds the smoothest field by interpolating the two vectors parallelly. This method is different from the one used in <span class="citation" data-cites="liu2011general">[@liu2011general]</span> where it uses a signed permutation technique in order to find the correct vector’s relation between neighbouring vertices. In <span class="citation" data-cites="fig:npolyvectorfield">[@fig:npolyvectorfield]</span>, it is well clear how the smoothed vector field and the parallel transport have been well generated.</p>
+<h5 id="conjugate-direction-field">Conjugate Direction Field</h5>
+<figure>
+<img src="MT_JPG/Conjugate%20field.png" alt="Conjugate field [\mathbf{v_{i},w_{i}}] after smoothing previously the vector field [e_{i,1}, e_{i,2}]" id="fig:Conjugatefield" /><figcaption>Conjugate field <span class="math inline">[<strong>v</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>w</strong><sub><strong>i</strong></sub>]</span> after smoothing previously the vector field <span class="math inline">[<em>e</em><sub><em>i</em>, 1</sub>, <em>e</em><sub><em>i</em>, 2</sub>]</span></figcaption>
+</figure>
+<p>After smoothing the vector field in the previous step, a quad mesh can be generated after defining the conjugate networks, <span class="citation" data-cites="liu2011general">[@liu2011general]</span> took further this topic for more information refer to the reading. From the previous step a conjugate vector field <span class="math inline">[<strong>v</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>w</strong><sub><strong>i</strong></sub>]</span> with <span class="citation" data-cites="Capybara">[@Capybara]</span> is computed using an algorithm provided in <span class="citation" data-cites="LibDirectional">[@LibDirectional]</span> see [#fig:Conjugatefield].</p>
+<h5 id="global-parametrization-using-frame-fields">Global Parametrization using frame fields</h5>
+<figure>
+<img src="MT_JPG/GlobalParametrizationMap.png" alt="a) The first mesh \Bbb{R}^{3}_{1}, b) The second mesh \Bbb{R}^{3}_{2}. In green the boundary of the cutting path \delta, Pl_{i} the isolines, and \mathbf{v_{i},w_{i}} the frame fields chosen at index i" id="fig:GPmap" /><figcaption>a) The first mesh <span class="math inline">$\Bbb{R}^{3}_{1}$</span>, b) The second mesh <span class="math inline">$\Bbb{R}^{3}_{2}$</span>. In green the boundary of the cutting path <span class="math inline"><em>δ</em></span>, <span class="math inline"><em>P</em><em>l</em><sub><em>i</em></sub></span> the isolines, and <span class="math inline"><strong>v</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>w</strong><sub><strong>i</strong></sub></span> the frame fields chosen at index <span class="math inline"><em>i</em></span></figcaption>
+</figure>
+<p>If the mesh possess negative curvature and is varying highly, the parametrization has to be done by patches, see <span class="citation" data-cites="fig:GPmap">@fig:GPmap</span> otherwise the parametrization can be done on a single patch see <span class="citation" data-cites="fig:GPmap2">@fig:GPmap2</span>. The latter depend on the umbilics and the rigids. the algorithm succeeded with all the meshes except for <span class="math inline">$\Bbb{R}^{3}_{4}$</span> which is in continous research.</p>
+<figure>
+<img src="MT_JPG/GlobalParametrizationMap2.png" alt="c) The third mesh \Bbb{R}^{3}_{1}, d) The fourth mesh \Bbb{R}^{3}_{1}" id="fig:GPmap2" /><figcaption>c) The third mesh <span class="math inline">$\Bbb{R}^{3}_{1}$</span>, d) The fourth mesh <span class="math inline">$\Bbb{R}^{3}_{1}$</span></figcaption>
+</figure>
+<p>This method is based on the <em>global parametrization with frame fields</em> <span class="citation" data-cites="fig:GPmap">[@fig:GPmap]</span> it is generated using a custom component developped by the author of <span class="citation" data-cites="Capybara">[@Capybara]</span>. It is used to shape the new mesh in a different typology, the latter has to be aligned with some given vetors <span class="math inline"><strong>v</strong><sub><strong>i</strong></sub><strong>,</strong> <strong>w</strong><sub><strong>i</strong></sub></span> by interest of the user. The Mixed-integer quadrangulation by <span class="citation" data-cites="bommes2009mixed">[@bommes2009mixed]</span> is one way to do that and another way is using <em>Anisotropic remeshing to concentrate the elements in the regions with more details</em><span class="citation" data-cites="mueller2018optimized">[@mueller2018optimized]</span> published by <span class="citation" data-cites="diamanti2014designing">[@diamanti2014designing]</span> an open source library can do that see <span class="citation" data-cites="Libgil">[@Libgil]</span> and <span class="citation" data-cites="Ebke:2013:QRQ:2508363.2508372">[@Ebke:2013:QRQ:2508363.2508372]</span>.</p>
+<h5 id="tracing-streamlines">Tracing Streamlines</h5>
+<p>The streamlines are traced on the 2D maps after integrating the Vector field then they are remapped on the 3D meshes. They are generated using a custom component in <span class="citation" data-cites="Capybara">[@Capybara]</span> that is developed using the <span class="math inline">4<sup><em>t</em><em>h</em></sup></span> order Runge-Kutta for more information refer to <span class="citation" data-cites="mueller2018optimized">[@mueller2018optimized]</span> see <span class="citation" data-cites="fig:GPmap">[@fig:GPmap and @fig:GPmap2]</span>.</p>
+<h5 id="extracting-the-candidate-pq-meshes">Extracting the Candidate PQ Meshes</h5>
+<figure>
+<img src="MT_JPG/Candidate%20PQ%20Mesh.png" alt="further otpimization a goal will applied to them." id="fig:CandidatePQMeshFromCDF" /><figcaption>further otpimization a goal will applied to them.</figcaption>
+</figure>
+<p>The Mesh is generated after extracting the curve networks from the previous step. Therefore the result are seen in <span class="citation" data-cites="fig:CandidatePQMeshFromCDF">[@fig:CandidatePQMeshFromCDF]</span>. The resulting mesh is a candidate PQ mesh ready for optimization</p>
+<h4 id="generating-a-quad-dominant-meshes-via-principal-curvature-networks">Generating a Quad-Dominant meshes via Principal Curvature Networks</h4>
+<p>This method is different from the previous one. The network of curves will be generated using <span class="citation" data-cites="Millipede">[@Millipede]</span>, however the output is not sorted. Although without a special library like <span class="citation" data-cites="libigl">[@libigl]</span> and <span class="citation" data-cites="Ebke:2013:QRQ:2508363.2508372">[@Ebke:2013:QRQ:2508363.2508372]</span> to extract automatically a robust-quad mesh <span class="citation" data-cites="ebke2013qex">[@ebke2013qex]</span> is very hard to achieve. This method is based on the on the mixed integer quadrangulation by <span class="citation" data-cites="bommes2009mixed">[@bommes2009mixed]</span>. Therefore, an algorithm had to be developed in order to extract that candidate PQ mesh using conformal mapping.</p>
+<h5 id="computing-curvature-networks">Computing Curvature Networks</h5>
+<figure>
+<img src="MT_JPG/Curve%20Network.png" alt="Left:Curve network from principal curvature directions e_{P_{1}} in red curve and e_{P_{2}} in blue. Right: Cross field from principal directions" id="fig:CurveNetwork" /><figcaption>Left:Curve network from principal curvature directions <span class="math inline"><em>e</em><sub><em>P</em><sub>1</sub></sub></span> in red curve and <span class="math inline"><em>e</em><sub><em>P</em><sub>2</sub></sub></span> in blue. Right: Cross field from principal directions</figcaption>
+</figure>
+<p>The principal curvature network will be generated automatically using the reparamterized component developed in <span class="citation" data-cites="Millipede">[@Millipede]</span>. The component generates the curve network and the vector field of principal directions as seen in <span class="citation" data-cites="fig:CurveNetwork">[@fig:CurveNetwork]</span>. The curve network depends on how smooth is the vector field. Unfortunatly the quad mesh can not be generated automatically because the curves are not buildable.</p>
+<h5 id="global-parametrization-using-conformal-mapping">Global Parametrization using conformal mapping</h5>
+<h5 id="extracting-the-candidate-pq-mesh">Extracting the Candidate PQ Mesh</h5>
+<h3 id="conical-meshes">Conical Meshes</h3>
+<figure>
+<img src="MT_JPG/ConicalMeshes.jpg" alt="Left: Offset propetry of a conical mesh. Right: Railway station by B.Schneider* [@liu2006geometric] a conical mesh as glass structure that discretizes the principle curvature" id="fig:conicalMeshes" /><figcaption>Left: Offset propetry of a conical mesh. Right: Railway station by B.Schneider* <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span> a conical mesh as glass structure that discretizes the principle curvature</figcaption>
+</figure>
+<p>Conical meshes are planar quad meshes which discretize principal curvature lines, posses an offset at a constant distance as well as planar connecting elements. See <span class="citation" data-cites="fig:ConicalMeshes">[@fig:ConicalMeshes]</span>. A conical mesh is conical if and only if all of its vertices <span class="math inline"><strong>v</strong><sub><em>i</em></sub></span> are conical which means that the four face planes meeting at <span class="math inline"><strong>v</strong></span> are tangent to a common sphere <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span> see <span class="citation" data-cites="fig:facesConfiguration">[@fig:facesConfiguration]</span>.</p>
+<figure>
+<img src="MT_JPG/FacesConfigurations.png" alt="Faces Configuration of a Conical Ceshes" id="fig:facesConfiguration" /><figcaption>Faces Configuration of a Conical Ceshes</figcaption>
+</figure>
+<h4 id="the-angle-criterion-of-a-conical-mesh">The Angle Criterion of a Conical Mesh</h4>
+<ul>
+<li>The sum of the opposite angles on a vertex <span class="math inline"><strong>v</strong></span> should always be equals to zero so see <span class="citation" data-cites="fig:facesConfiguration">[@fig:facesConfiguration]</span>:</li>
+<li><span class="math inline"><strong>v</strong></span> is a conical vertex if and only if the charaterization of a conical mesh interior angles should respond to this function: <br /><span class="math display"><em>ω</em><sub>1</sub> + <em>ω</em><sub>3</sub> = <em>ω</em><sub>2</sub> + <em>ω</em><sub>4</sub></span><br /></li>
+</ul>
+<h4 id="the-offset-properties">The Offset Properties</h4>
+<p>Triangular meshes are missing the offset property at a constant distance. However conical meshes have this property while generating conical meshes at the offset.</p>
+<figure>
+<img src="MT_JPG/Constant%20Offset%20of%20Conical%20Meshes.jpg" alt="Constant offset of a Conical Mesh see [@pottmann-2008-fg]" id="fig:ConicalMeshes" /><figcaption>Constant offset of a Conical Mesh see <span class="citation" data-cites="pottmann-2008-fg">[@pottmann-2008-fg]</span></figcaption>
+</figure>
+<p>The fact that the faces of a conical mesh are incident to a common vertex <span class="math inline"><strong>v</strong><sub><em>i</em>, <em>j</em></sub></span> and tangent to a cone with an axis <span class="math inline"><em>Q</em><sub><em>i</em>, <em>j</em></sub></span>. After offseting the axis remains the same and the faces are still tangent to the cone.</p>
+<p>The Languerre transformation <span class="citation" data-cites="liu2006geometric">[@liu2006geometric]</span> contains one of the instances for offsetting planes by a fixed distance along their normal vector. The Languerre transformation preserves the conical meshes at the offset.</p>
+<h4 id="the-normals">The Normals</h4>
+<ul>
+<li><em>The spherical image</em> is a fact where the vertice <span class="math inline"><strong>n</strong><sub><em>i</em><em>j</em></sub></span> of a PQ mesh built on a unit sphere are converted to the normal vectors of <span class="math inline"><em>Q</em><sub><em>i</em>, <em>j</em></sub></span>.</li>
+<li>As the four faces incident to a common vertice <span class="math inline"><strong>n</strong><sub><em>i</em><em>j</em></sub></span> tangent to the same cone, the normal vectors <span class="math inline">$\overrightarrow{n_{ij}}$</span> on each of the four faces share the same angle with the cone’s axis <span class="math inline"><em>Q</em><sub><em>i</em>, <em>j</em></sub></span>.</li>
+<li>Consequently the spherical image of the principle curvature network returns an orthogonal curve network on a sphere.</li>
+</ul>
+<h4 id="conical-and-circular-optimization">Conical and circular optimization</h4>
+<p>PQ meshes generated after computing the principle curve networks are well suited to be optimized using the conical conditions.</p>
+<h2 id="optimization-k2goals">Optimization (K2)goals</h2>
+<h2 id="subdivision-strategy-starting-with-a-coarse-quad-dominant-mesh">Subdivision Strategy (Starting with a Coarse Quad-Dominant mesh)</h2>
+<h3 id="subdivision-strategy-principals">Subdivision Strategy principals</h3>
+<figure>
+<img src="MT_JPG/SubdivisionTechnique.png" alt="Left: Singularities with negative indices. Right: Singularities with positive indices." id="fig:SubdivisionTechnique" /><figcaption>Left: Singularities with negative indices. Right: Singularities with positive indices.</figcaption>
+</figure>
+<p>A coarse mesh that approximate the topology of a input surface can be subdivided using catmull clark algorithm <span class="citation" data-cites="Weaverbird">[@Weaverbird]</span>. For PQ meshes, the valence of the each vertex should be four, vertices with a valence more then four are considered as singularities. After applying the subdivision on the coarse mesh, singularities with negative indices take a negative curvature and singularities with a positive indices take a positive curvature see <span class="citation" data-cites="fig:SubdivisionTechnique">[@fig:SubdivisionTechnique]</span>.</p>
+<h3 id="curvature-and-singularities-analysis">Curvature and singularities analysis</h3>
+<figure>
+<img src="MT_JPG/Placing%20singularities.png" alt="Left: The input surfaces. Right: Singularities with indices -1\over4 are placed in the inner polygon containing six sides, and the outer polygon formed by eighteen sides will contain singularities with indices 1\over4." id="fig:Placingsingularities" /><figcaption>Left: The input surfaces. Right: Singularities with indices -<span class="math inline">$1\over4$</span> are placed in the inner polygon containing six sides, and the outer polygon formed by eighteen sides will contain singularities with indices <span class="math inline">$1\over4$</span>.</figcaption>
+</figure>
+<p>Givin three different input surfaces, first the curvature is analyzed and the singularities are placed by index see <span class="citation" data-cites="fig:Placingsingularities">[@fig:Placingsingularities]</span>.</p>
+<h3 id="generating-the-coarse-mesh">Generating the coarse mesh</h3>
+<figure>
+<img src="MT_JPG/CoarseMesh.png" alt="Left: Topological 2D mapping patch with singularities. Right: Coarse mesh generated" id="fig:CoarseMesh" /><figcaption>Left: Topological 2D mapping patch with singularities. Right: Coarse mesh generated</figcaption>
+</figure>
+<p>Subsequently to the previous step, a 2D map by patches have been generated. Such method can help out to predict the pre-networking between singularities and to avoid unexpected ones. Therefore it now possible to generate the coarse mesh following the 2D map see <span class="citation" data-cites="fig:CoarseMesh">[@fig:CoarseMesh]</span>.</p>
+<h3 id="catmull-clark-subdivision-and-pull-to-mesh">Catmull-clark subdivision and pull to mesh</h3>
+<figure>
+<img src="MT_JPG/subresult.png" alt="Left: Subdivided mesh using catmull-clark algorithm and singularities in color. Right: Pulling the subdivided mesh to the input surface." id="fig:subresult" /><figcaption>Left: Subdivided mesh using catmull-clark algorithm and singularities in color. Right: Pulling the subdivided mesh to the input surface.</figcaption>
+</figure>
+<p>Thereafter, the catmull-clark algorithm has be added to the coarse mesh after reducing the average of none planar faces, and the valence predefined is respected see <span class="citation" data-cites="fig:subresult">[@fig:subresult]</span>. Therefore, using kangaroo2 <span class="citation" data-cites="Kangaroo3d">[@Kangaroo3d]</span> the coarse mesh has been pulled by constraining the latter’s points on the input mesh. Finally the coarse mesh takes the input shape see <span class="citation" data-cites="fig:pulled">[@fig:pulled]</span>.</p>
+<figure>
+<img src="MT_JPG/pulled.png" alt="The resulting remeshed dupin cyclide using PQ mesh and ready to optimize." id="fig:pulled" /><figcaption>The resulting remeshed dupin cyclide using PQ mesh and ready to optimize.</figcaption>
+</figure>
+<h3 id="analysis">Analysis</h3>
+<figure>
+<img src="MT_JPG/PlanarityAnalysis.png" alt="Panels planarity analysis. Left: Planarity and hinge measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (conformal mapping). 3rd mesh: Anisotropic (directional mapping)" id="fig:PlanarityMeasure" /><figcaption>Panels planarity analysis. Left: Planarity and hinge measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (conformal mapping). 3rd mesh: Anisotropic (directional mapping)</figcaption>
+</figure>
+<p>The panels planarity are shown in gradiant color, the blue corresponds to exact planarity, red corresponds to <span class="math inline"><em>δ</em> = 0.13</span>. The anisotropic remeshing fulfill better the planarity then the other meshes see <span class="citation" data-cites="fig:PlanarityMeasure">[@fig:PlanarityMeasure]</span>.</p>
+<figure>
+<img src="MT_JPG/Area.png" alt="Faces area analysis. Left: Areas measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (conformal mapping). 3rd mesh: Anisotropic (directional mapping)." id="fig:Areameasure" /><figcaption>Faces area analysis. Left: Areas measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (conformal mapping). 3rd mesh: Anisotropic (directional mapping).</figcaption>
+</figure>
+<p>The coarse mesh have been built in reference to an evenly spaced points at the boundary. Thus the areas looks more even in the third mesh where it is remeshed anasotropicaly see [#fig:AreaMeasure].</p>
+<figure>
+<img src="MT_JPG/Distortion.png" alt="Panels distortionAnisotropic (conformal mapping). 3rd mesh: Anisotr analysis. Left: Distortion measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (directional mapping)." id="fig:Distortion" /><figcaption>Panels distortionAnisotropic (conformal mapping). 3rd mesh: Anisotr analysis. Left: Distortion measure. 1st mesh: Top down remeshing singularities. 2nd mesh: Anisotropic (directional mapping).</figcaption>
+</figure>
+<p>The color coding shows the maximum value 2.17 in magenta and the minimum distortion in cyan. It is clear in <span class="citation" data-cites="fig:Distortion">[@fig:Distortion]</span> that the anisotropic is the one to succeed in terms of less distorted panels.</p>
+<h3 id="optimization">Optimization</h3>
+<figure>
+<img src="MT_JPG/planarity%20opt.png" alt="Planarity optimized. Left: Top down remeshing singularities. Middle: Top down remeshing singularities. Right: Anisotropic (directional mapping)." id="fig:planarityOpt" /><figcaption>Planarity optimized. Left: Top down remeshing singularities. Middle: Top down remeshing singularities. Right: Anisotropic (directional mapping).</figcaption>
+</figure>
+<p>After planarizing a first time and subdividing the mesh coarse mesh, the latter is ready to be fully optimized by constraining the faces under the planarity goal using <span class="citation" data-cites="Kangaroo3d">[@Kangaroo3d]</span> solver, surface fairness and planarity and continuously modified in order to achieve the objectives see <span class="citation" data-cites="fig:planarityOpt">[@fig:planarityOpt]</span>. In addition to that, it is clear in <span class="citation" data-cites="fig:diagrams">[@fig:diagrams]</span> that the directional mapping seams to have better results in terms of planarity areas and distortion of the panels.</p>
+<figure>
+<img src="MT_JPG/mad%20and%20graph.png" alt="Left: Diagram showing the mad of the areas in fonction of planarity between the three different meshes. Right: Diagram showing the variance of diagonals in fonction to the number of faces" id="fig:diagrams" /><figcaption>Left: Diagram showing the mad of the areas in fonction of planarity between the three different meshes. Right: Diagram showing the variance of diagonals in fonction to the number of faces</figcaption>
+</figure>
