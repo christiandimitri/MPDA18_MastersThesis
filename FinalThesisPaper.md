@@ -136,7 +136,7 @@ In order to find a smoothed and well aligned vector field $[e_{1},e_{2}]$ on eac
 
 ![Conjugate field $[\mathbf{v_{i},w_{i}}]$ after smoothing previously the vector field $[e_{i,1}, e_{i,2}]$.](MT_JPG/Conjugate field.png){#fig:Conjugatefield}
 
-After smoothing the vector field in the previous step, a quad mesh can be generated after defining the conjugate networks, [@liu2011general] took further this topic for more information refer to the reading. From the previous step a conjugate vector field $[\mathbf{v_{i},w_{i}}]$ with [@Capybara] is computed using an algorithm provided in [@LibDirectional] see ////[@fig:Conjugatefield].
+After smoothing the vector field in the previous step, a quad mesh can be generated after defining the conjugate networks, [@liu2011general] took further this topic for more information refer to the reading. From the previous step a conjugate vector field $[\mathbf{v_{i},w_{i}}]$ with [@Capybara] is computed using an algorithm provided in [@LibDirectional] see [@fig:Conjugatefield].
 
 ##### Global parametrization using frame fields
 
