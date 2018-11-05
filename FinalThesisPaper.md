@@ -1,26 +1,33 @@
 ---
-title: "Planar Quads in Architecture Surfaces"
+title: "Planar Quads in Free-Form Architecture Surfaces"
 date: "September 2018"
 author: "Christian Dimitri, UPC BarcelonaTech"
 abstract:
-    Planar quads are found everywhere in architectural free-form surfaces. The first chapter will cover the problems behind planar quads for constructability, there benifits, there metrics and there constraints goals for optimization. The second chapter will embed several pre-processing algorithms that generates a candidate mesh for being a planar quads mesh. Therefore, in the third chapter, those candidate meshes will be optimized according to some conditions that qualify them to be PQ meshes. Those conditions are based on scientifique papers. And finally by combining the chapter two and chapter three, iteratively a subdivision method algorithm and a quad planarization will be done in order to have a PQ mesh.
+This paper will cover the pre-processing techniques for planar quad meshes in architecture free-form surfaces. Firstly will cover the problems behind planar quads for contractibility, there benefits, there metrics and there constraints goals for optimization. Secondly we will explain the several preprocessing algorithms that generates a candidate PQ mesh ready for optimization. Finally, those candidate meshes will be optimized according to there conditions that qualify them to be PQ meshes. Those conditions are based on scientific papers. And finally by combining the chapter two and chapter three, iteratively a subdivision method algorithm and a quad planarization will be done in order to have a PQ mesh.
 bibliography: paper.bib
 ---
 
+# Introduction
+
+Planer Quad meshes have been nearly ubiquitous in architecture and other fields such as computer graphics and so on. A large body of data structures and geometry processing algorithms based on them has been developed in the literature and adapted in the construction of free-form surfaces. This type of re-meshing has many advantages especially the semi-regular ones, and significant progresses were made in quadrilateral mesh generation and processing during the last several years. In this paper, we will study four algorithms behind planar quad meshes and their goals. We will apply them on four surfaces having different curvatures.
+
 # Construction
 
-*PQ meshes* must show different results from the mere geometry since the planarity of faces should obbey the goals in order to fulfil the basis properties of the *planar quad meshes* [@zadravec2010designing].
+In construction, planar quads should always be planar and their distribution on the mesh is preferable to be equidistant so that there size do not vary a lot. In the first section, the geometric properties of PQ meshes will be introduced as well as there benefits over other ones. Therefore, the metrics and measures will be split by type and explained graphically and mathematically.
+
+*PQ meshes* must show different results from the mere geometry since the planarity of faces should obey the goals in order to fulfil the basis properties of the *planar quad meshes* [@zadravec2010designing].
 
 ## PQ Geometric Properties
-![The hinge is affected by the high Gaussian curvature on the surface of the *Yas Island Hotel By Zaha Hadid* [@de2011technique]. The difference between *PQ meshes* and *triangle meshes*.](MT_JPG/PQ Geometric Properties.png){#fig:GoemetricPrincipals}
 
-Since a triangular face in space is always planar, then they are easier to deal with when the curvature is very high. The latter leads the quad panels to bend and the four vertices will want to move from the plane. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independant from its neighbouring face's vertex see @fig:GoemetricPrincipals.
+!!missing graphically explanation
 
-In theory two parallel vectors in space enclosed at each point by two other vectors not necesseraly parallel form a planar face, for more information refer to the author [@glymph2004parametric]. Consider each row of faces $f_{i,j}$ is a PQ strip. PQ meshes are composed by vertices $\mathbf{v}_{i,j}$ with a valence  $\pm k/4 (k\in Z)$ where along each vertex a curve of family A and a curve of family B intersect see [@liu2006geometric]. N-geons can appear with a valence $k \neq 4$ so called singularities. 
+A polygon face is planar if and only if its vertices $v_{n}$ *define a plane*. A triangle face is always planar, however a quadrangular face can be non-planar since the curvature plays a prominent roll against the geometric property of a planar quad. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independant from its neighboring face's vertex see @fig:GoemetricPrincipals.
+
+We consider two parallel vectors in space enclosed at each point by two other vectors not necessarily parallel form a planar face [@glymph2004parametric]. Consider each row of faces $f_{i,j}$ is a PQ strip. PQ meshes are composed by vertices $\mathbf{v}_{i,j}$ with a valence  $\pm k/4 (k\in Z)$ where along each vertex a curve of family A and a curve of family B intersect see [@liu2006geometric]. N-geons can appear with a valence $k \neq 4$ so called singularities. 
 
 ## Benefits
 
-*Planar quad* meshes are prefered over *triangule meshes* for aesthetical and constructional reasons. The advantages of *planar quads* meshes for construction over other meshes is that:
+*Planar quad* meshes are preferred over *triangle meshes* for aesthetically and constructional reasons. The advantages of *planar quads* meshes for construction over other meshes is that:
 
 * *PQ meshes* are less heavy.
 * *PQ meshes* are a less material use.
