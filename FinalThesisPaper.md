@@ -20,7 +20,7 @@ In construction, planar quads should always be planar and their distribution on 
 
 ![The hinge is affected by the high Gaussian curvature on the surface of the *Yas Island Hotel By Zaha Hadid* [@de2011technique]. The difference between *PQ meshes* and *triangle meshes*.](MT_JPG/PQGeometricProperties.png){#fig:GeometricPrincipals}	
 
-A polygon face is planar if and only if its vertices $v_{n}$ *define a plane*. A triangle face is always planar, however a quadrangular face can be non-planar since the curvature plays a prominent role against the geometric property of a planar quad. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independant from its neighboring face's vertex see @fig:GeometricPrincipals.
+A polygon face is planar if and only if its vertices $v_{n}$ *define a plane*. A triangle face is always planar, however a quadrangular face can be non-planar since the curvature plays a prominent role against the geometric property of a planar quad. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independent from its neighboring face's vertex see @fig:GeometricPrincipals.
 
 
 
@@ -47,9 +47,11 @@ The measurements and conditions applied to the elements of the mesh are:
 
 # Algorithmic Strategies
 
+![Algorithmic strategies diagrams](MT_JPG/ProcessDiagram.png){#fig:ProcessDiagram}
+
 ## Several Pre-Processing Techniques
 
-Given four different meshes as inputs, several pre-processing techniques will be adapted in order to generate a *PQ mesh* with *planar faces*. The used techniques will depend on the surface type. Translation surfaces is an easy and fast algorithm to generate specific surfaces. However architecture free-form surfaces with high curvature require more complex algorithms to generate *PQ meshes*.
+Given four different meshes as inputs, several pre-processing techniques will be adapted in order to generate a *PQ mesh* with *planar faces*. The used techniques will depend on the surface type. Translation surfaces is an easy and fast algorithm to generate specific surfaces. However architecture free-form surfaces with high curvature require more complex algorithms to generate *PQ meshes* see [@fig:ProcessDiagram].
 
 ### Translation Surfaces
 
@@ -82,7 +84,7 @@ The central expansion of any curve gives a new curve having parallel edges. The 
 
 ### *Conjugate networks*
 
-Some curve networks are a robust and efficient method to extract PQ meshes [@liu2006geometric]. Such method admits a huge variety of free-form surfaces. The advantage of designing a conjugate direction field is that the user possesses total freedom in controlling the PQ mesh layout [@zadravec2010designing]. Thus, the panels are flat and discretize the principal curvature lines see [@liu2006geometric].
+Some curve networks are a robust and efficient method to extract *PQ meshes* [@liu2006geometric]. Such method admits a huge variety of free-form surfaces. The advantage of designing a conjugate direction field is that the user possesses total freedom in controlling the PQ mesh layout [@zadravec2010designing]. Thus, the panels are flat and discretize the principal curvature lines see [@liu2006geometric].
 
 ![Left: High twisting moment. Middle: Stiffening by triangulation. Right: Torsion free alignment.[@zadravec2010designing]](MT_JPG/TorsionFree.png){#fig:torsionFree}
 
@@ -100,7 +102,7 @@ For each $p\in\Phi$ unique curves of both family $A, B$ should appear. *Since $T
     * *The network of principle curvature lines* see (@fig:conjugateNetworks left).
     * In a translation surface of the form $p(u,v)$ $\mathbf{p}(u)$ a sectional curve is translated along another curve generatrix $\mathbf{p}(v)$ and vice versa see @fig:TranslationPrinciples.
 
-* Not suited for PQ meshes:
+* Less suited for PQ meshes:
     * *Epipolar curves*: The translation of a point $p$ along a line $l$ and the intersection of the planes through the points $p(i)$ with that surface $\Phi$ generates asymptotic curves that are not suited for such meshing see (@fig:conjugateNetworks center).
     * *Isophotic curves are conjugate to the system of the steepest descent curves respecting the z-axis* see (@fig:conjugateNetworks right).
 
