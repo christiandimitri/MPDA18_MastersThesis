@@ -94,7 +94,9 @@ In addition to that, it can admit free torsion node while aligning the curve net
 
 #### The relation between PQ meshes and *conjugate networks*.
 
-Conjugate curve networks are families of curves $A, B\subset\Phi$:
+![ConjugatecurveNetworks](MT_JPG/ConjugatecurveNetworks.png){#fig:ConjugatecurveNetworks}
+
+As seen in [@fig: ConjugatecurveNetworks], conjugate curve networks are families of curves $A, B\subset\Phi$:
 For each $p\in\Phi$ unique curves of both family $A, B$ should appear. *Since $T_{1},T_{2}$ are conjugate then they pre-define $A$ and get $B$ by integrating the vector field directions conjugate of family $A$*.[@liu2006geometric]
 
 *Examples of Conjugate Curve Networks on Surfaces*:
@@ -137,7 +139,7 @@ The quality of the mesh is always better when the panels are aligned with the cu
 
 ![Smoothed vector field using n-polyVector field algorithm](MT_JPG/InterpolateField.png){#fig:npolyvectorfield}
 
-In [@fig:npolyvectorfield], it is clear that the smoothed vector field and the parallel transport have been well generated. In order to find a smooth and aligned vector field $[e_{1},e_{2}]$ on each of the four meshes $\mathbb{R}^{3}$, the algorithm is based on finding the trade-off between neighboring faces $f_{i}$ so that the parallel transport succeeds. It uses the novel method proposed by [@diamanti2014designing] called *N-Poly Vector Field*. While selecting a subset of points [P], the vector field $[e_{1},e_{2}]$ is able to be generated smoothly and continuously. It finds the smoothest field by interpolating the two vectors parallelly. This method is different from the one used in [@liu2011general] where a signed permutation method is used in order to find the correct relation between neighboring vectors.
+In [@fig:npolyvectorfield], it is clear that the smoothed vector field and the parallel transport have been well generated. In order to find a smooth and aligned vector field $[e_{1},e_{2}]$ on each of the four meshes $\mathbb{R}^{3}$, the algorithm is based on finding the trade-off between neighboring faces $f_{i}$ so that the parallel transport succeeds see [@fig:singleCDF] right. It uses the novel method proposed by [@diamanti2014designing] called *N-Poly Vector Field*. While selecting a subset of points [P], the vector field $[e_{1},e_{2}]$ is able to be generated smoothly and continuously. It finds the smoothest field by interpolating the two vectors parallelly. This method is different from the one used in [@liu2011general] where a signed permutation method is used in order to find the correct relation between neighboring vectors.
 
 ##### *Conjugate direction field*
 
@@ -377,13 +379,14 @@ The optimizzation happens by constraining the faces under the planarity goal usi
 
 ## Comparison & Synthesis
 
-![Graph showing the MAD of planarity over the number of faces for the four meshes $\mathbb{R}^3_{i}$](MT_JPG/MAD.png){#fig:MAD}
+![Graph showing the MAD of Apect ratio in cm over the planarity in rad for the four meshes $\mathbb{R}^3_{i}$](MT_JPG/AspectRatio_Planarity_MAD.png){#fig:MAD1}
+
+
+![Graph showing the MAD of Areas in sqcm over the warping height in cm for the four meshes $\mathbb{R}^3_{i}$](MT_JPG/Areas_WarpingHeight_MAD.png){#fig:MAD2}
 
 # Conclusion
-
-*PQ meshes* must show different results from the mere geometry since the planarity of faces should obey the goals in order to fulfil the basis properties of the *planar quad meshes* [@zadravec2010designing].
-They are very hard to deal with when the input surface is a free-form. However some algorithms have shown the differences between them and there results. Having a conjugate direction field as a tool to control the mesh layout is very useful. Thus generating PQ meshes from curve network is robust as well. The two different methods are almost planar after generation since they are extracted from the principal directions. The conical optimization has proved its robustness over planar quad meshes. By optimizing and combining the methods the last one was to generate planar quads by subdividing a coarse mesh and then optimize it. The boundary condition has been neglected.
+*PQ meshes* must show different results from mere geometry. The planarity of the faces should obey the goals in order to fulfil the basis of the *planar quad meshes* [@zadravec2010designing]. They are very hard to deal with when the input surface is a free-form. However some algorithms have shown the differences between them and their results. Having a conjugate direction field as a tool to control the mesh layout is very useful. Thus, generating PQ meshes from curve network is strongly accurate. The two different methods are almost planar after generation since they are extracted from the principal directions. The conical optimization has proven its effectiveness over planar quad meshes. By optimizing and combining the methods, the last one was to generate planar quads by subdividing a coarse mesh and then optimizing it to planar. The boundary condition has been neglected in these methods, however, we recommend the first method due to its smooth results and its manipulation liability.
 
 # Further work
 
-For further research the boundary will be taken in consideration while generating the PQ meshes. The fourth mesh $\mathbb{R}^3_{4}$ that failed in the frame field algorithm has to be developped accordingly 
+For further research the boundary will be taken in consideration while generating the PQ meshes. The fourth mesh $\mathbb{R}^3_{4}$ that failed in the frame field algorithm has to be developped accordingly to its curvature for it to unwrap while avoiding collisions.
