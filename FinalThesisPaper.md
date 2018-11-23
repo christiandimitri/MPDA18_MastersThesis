@@ -222,7 +222,7 @@ Left: The sum of the opposite angles $\omega_{i}$ measured in radians for each v
 
 For each vertex $\mathbf{v}_{i,j}$ on the mesh $\mathbb{R}^3$ minimize the sum of the opposite angles equals to zero $\omega_{1}+\omega_{3}-\omega_{2}-\omega_{4}=0$ using [@Kangaroo3d] solver.
 
-![Left: The sum of the opposite angles $\omega_{i}$ measured in radians for each vertex $\mathbf{v}_{i,j}$ of the meshes $\mathbb{R}^3_{i}$. Right:  The angles difference $\theta_{i}$ between the normals $n_{i,j}$ and the cones normal $Q_{i,j}$ are measured in radians for each vertex $\mathbf{v}_{i,j}$ of the meshes $\mathbb{R}^3_{i}$](MT_JPG/Figure_26.jpg){#fig:Figure_26}
+![Left: The sum of the opposite angles $\omega_{i}$ measured in radians for each vertex $\mathbf{v}_{i,j}$ of the meshes $\mathbb{R}^3_{i}$. Right:  The angles difference $\theta_{i}$ between the normals $n_{i,j}$ and the cones normal $Q_{i,j}$ are measured in radians for each vertex $\mathbf{v}_{i,j}$ of the meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_26.jpg){#fig:Figure_26}
 
 
 ## Optimization (K2)goals
@@ -232,7 +232,6 @@ For each vertex $\mathbf{v}_{i,j}$ on the mesh $\mathbb{R}^3$ minimize the sum o
 In order to optimize the panels, the planarity $\delta_{PQ}$ is measured in radians, diagonals aspect ratio $\eta_{PQ}$ and the warping height $h$ are measured in cm, and finally the area $\eta_{PQ}$ and the variance are measured in $cm^2$ on the the meshes generated via conjugate curve networks as seen in [@fig:Figure_27 and @fig:Figure_28].
 
 ![The mesh generated via frame field results are shown and measured above.](MT_JPG/Figure_27.jpg){#fig:Figure_27}
-
 ![The mesh generated via conformal mapping are shown and measured above.](MT_JPG/Figure_28.jpg){#fig:Figure_28}
 
 #### Optimization
@@ -240,86 +239,45 @@ In order to optimize the panels, the planarity $\delta_{PQ}$ is measured in radi
 After analyzing the panels under their required goals for them to be planar, the elements are optimized using kangaroo2 solver [@Kangaroo3d]. The results have been reduced noticeably see in [@fig:Figure_29 and @fig:Figure_30].
 
 ![The mesh generated via frame field optimized are shown above.](MT_JPG/Figure_29.jpg){#fig:Figure_29}
-
 ![The mesh generated via conformal mapping optimized are shown above.](MT_JPG/Figure_30.jpg){#fig:Figure_30}
 
 ## Subdivision Strategy (Starting with a Coarse Quad-Dominant mesh)
 
 ### Subdivision Strategy principles
 
-![Left: Singularities with negative indices. Right: Singularities with positive indices.](MT_JPG/SubdivisionTechnique.png){#fig:SubdivisionTechnique}
+![Left: Singularities with negative indices. Right: Singularities with positive indices.](MT_JPG/Figure_31.jpg){#fig:Figure_31}
 
-A coarse mesh that approximates the topology of a input surface can be subdivided using the catmull-clark algorithm [@Weaverbird]. For PQ meshes, the valence of the each vertex should be four, vertices with a valence more then four are considered as singularities. After applying the subdivision on the coarse mesh, singularities with negative indices take a negative curvature and singularities with a positive indices take a positive curvature see [@fig:SubdivisionTechnique].
+A coarse mesh that approximates the topology of a input surface can be subdivided using the catmull-clark algorithm [@Weaverbird]. For PQ meshes, the valence of the each vertex should be four, vertices with a valence more then four are considered as singularities. After applying the subdivision on the coarse mesh, singularities with negative indices take a negative curvature and singularities with a positive indices take a positive curvature see [@fig:Figure_31].
 
 ### Curvature and singularities analysis
 
-![Singularities with indices -$\frac{1}{4}$ and $\frac{1}{4}$ are placed accordingly to the curvature.](MT_JPG/PlacingSingularitiesandcurvatureanalysis.png){#fig:Placingsingularities}
+![Singularities with indices -$\frac{1}{4}$ and $\frac{1}{4}$ are placed accordingly to the curvature.](MT_JPG/Figure_32.jpg){#fig:Figure_32}
 
-On the given input meshes, the curvature $K$ is analyzed and the singularities are placed by index see [@fig:Placingsingularities].
+On the given input meshes, the curvature $K$ is analyzed and the singularities are placed by index see [@fig:Figure_32].
 
 ### Generating the coarse mesh
 
-![The coarse meshes are generated thru isocurves](MT_JPG/CoarseMesh.png){#fig:CoarseMesh}
+![The coarse meshes are generated thru isocurves.](MT_JPG/Figure_33.jpg){#fig:Figure_33}
 
-Subsequently to the previous step, a 2D map by patches is generated. Such a method can help out predicting the pre-networking between singularities and avoiding unexpected ones. Therefore it is now possible to generate the coarse mesh following the 2D map see [@fig:CoarseMesh].
+Subsequently to the previous step, a 2D map by patches is generated. Such a method can help out predicting the pre-networking between singularities and avoiding unexpected ones. Therefore it is now possible to generate the coarse mesh following the 2D map see [@fig:Figure_33].
 
 ### Catmull-clark subdivision and pull to mesh
 
-![Left: Subdivided mesh using catmull-clark algorithm and singularities in color. Right: Pulling the subdivided mesh to the input surface.](MT_JPG/PullTomesh.png){#fig:subresult}
+![Left: Subdivided mesh using catmull-clark algorithm and singularities in color. Right: Pulling the subdivided mesh to the input surface.](MT_JPG/Figure_34){#fig:Figure_34}
 
-The catmull-clark algorithm is applied to the coarse meshes. Using kangaroo2 [@Kangaroo3d] the coarse mesh is pulled by constraining the latter's points on the input meshes. The returning outputs are the candidate *PQ meshes* that need iterative optimization.[@fig:subresult].
+The catmull-clark algorithm is applied to the coarse meshes. Using kangaroo2 [@Kangaroo3d] the coarse mesh is pulled by constraining the latter's points on the input meshes. The returning outputs are the candidate *PQ meshes* that need iterative optimization [@fig:Figure_34].
 
-### Optimization
+### Analysis
 
-The optimizzation happens by constraining the faces under the planarity goal using [@Kangaroo3d] solver.
+After analyzing the panels under their required goals for them to be planar, the elements are optimized using kangaroo2 solver [@Kangaroo3d]. The results have been reduced noticeably see in [@fig:Figure_34 and @fig:Figure_35].
 
-#### Planarity
-
-##### Analysis
-
-![Before optimization: Planarity $\delta_{PQ}$ measured in radians of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/planarity.png){#fig:planarity}
-
-##### Optimization
-
-![After optimization: Planarity $\delta_{PQ}$ measured in radians of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/planarityaf.png){#fig:planarityaf}
-
-#### Diagonals aspect ratio
-
-#### Analysis
-
-![Before optimization: Diagonals aspect ratio $\eta_{PQ}$ measured in cm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/diagonals.png){#fig:diagonals}
-
-#### Optimization
-
-![After optimization: Diagonals aspect ratio $\eta_{PQ}$ measured in cm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/diagonalsaf.png){#fig:diagonalsaf}
-
-#### Element areas
-
-#### Analysis
-
-![Before optimization: Area $\eta_{PQ}$ and the variance  measured in sqcm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/areas.png){#fig:areas}
-
-#### Optimization
-
-![After optimization: Area $\eta_{PQ}$ and the variance  measured in sqcm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/areasaf.png){#fig:areasaf}
-
-#### Warping height
-
-#### Analysis
-
-![Before optimization: The height $h$ and the variance  measured in cm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/warping.png){#fig:warping}
-
-#### Optimization
-
-![After optimization: The height $h$ and the variance  measured in cm of the meshes $\mathbb{R}^3_{i}$ generated via subdivision technique.](MT_JPG/warpingaf.png){#fig:warpingaf}
-
+![The mesh generated via frame field optimized are shown above.](MT_JPG/Figure_35.jpg){#fig:Figure_35}
+![The mesh generated via conformal mapping optimized are shown above.](MT_JPG/Figure_36.jpg){#fig:Figure_36}
 
 ## Comparison & Synthesis
 
-![Graph showing the MAD of Apect ratio in cm over the planarity in rad for the four meshes $\mathbb{R}^3_{i}$](MT_JPG/AspectRatio_Planarity_MAD.png){#fig:MAD1}
-
-
-![Graph showing the MAD of Areas in sqcm over the warping height in cm for the four meshes $\mathbb{R}^3_{i}$](MT_JPG/Areas_WarpingHeight_MAD.png){#fig:MAD2}
+![Graph showing the MAD of Apect ratio in cm over the planarity in rad for the four meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_37.jpg){#fig:Figure_37}
+![Graph showing the MAD of Areas in $cm^2$ over the warping height in cm for the four meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_38.jpg){#fig:Figure_38}
 
 # Conclusion
 *PQ meshes* must show different results from mere geometry. The planarity of the faces should obey the goals in order to fulfil the basis of the *planar quad meshes* [@zadravec2010designing]. They are very hard to deal with when the input surface is a free-form. However some algorithms have shown the differences between them and their results. Having a conjugate direction field as a tool to control the mesh layout is very useful. Thus, generating PQ meshes from curve network is strongly accurate. The two different methods are almost planar after generation since they are extracted from the principal directions. The conical optimization has proven its effectiveness over planar quad meshes. By optimizing and combining the methods, the last one was to generate planar quads by subdividing a coarse mesh and then optimizing it to planar. The boundary condition has been neglected in these methods, however, we recommend the first method due to its smooth results and its manipulation liability.
