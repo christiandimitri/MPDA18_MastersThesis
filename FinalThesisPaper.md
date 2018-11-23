@@ -3,28 +3,24 @@ title: "Planar Quads in Architecture Free-Form Surfaces"
 date: "September 2018"
 author: "Christian Dimitri, UPC BarcelonaTech"
 abstract:
-    This paper will cover the preprocessing techniques for planar quad meshes in architecture free-form surfaces. As a first step, we will be covering the problems and objectives behind planar quads for construction, their benefits, their metrics as well as their goals, considering their constraints for a better optimization of the candidate *PQ mesh*. Secondly, we will explain the several preprocessing algorithms that generate a candidate *PQ mesh* ready for optimization. In addition to that, the output will be optimized according to it's properties qualifying it to be PQ meshes. The last-mentioned are based on scientific papers, and were applied to concrete architectural projects. Combining chapter two and chapter three iteratively, we will be hitting the last chapter of this paper; generating subdivision method algorithm and a quad planarization in order to have a PQ mesh.
+    This paper will cover the preprocessing techniques for planar quad meshes in architecture free-form surfaces. As a first step, we will be covering the problems and objectives behind planar quads for construction, their benefits, their metrics as well as their goals, considering their constraints for a better optimization of the candidate *PQ mesh*. Secondly, we will explain the several preprocessing algorithms that generate a candidate *PQ mesh* ready for optimization and apply them on four different type of surfaces. In addition to that, the output will be optimized according to it's properties qualifying it to be PQ meshes. The last-mentioned are based on scientific papers, and were applied to concrete architectural projects. Combining chapter two and chapter three iteratively, we will be hitting the last chapter of this paper; generating subdivision method algorithm and a quad planarization in order to have a PQ mesh.
 bibliography: paper.bib
 ---
 
 # Introduction
 
-Planer Quad meshes have been nearly ubiquitous in architecture and construction. A large body of data structures and geometry processing algorithms based on them has been developed in the literature and adapted in construction of free-form surfaces. This type of re-meshing has many advantages especially the semi-regular ones, and significant progresses were made in quadrilateral mesh generation and processing during the last years. In this paper, we will study four algorithms behind planar quad meshes and their goals in order to fulfill the objectives. We will apply them on four input surfaces having different curvatures.
+Planar Quad meshes have been nearly ubiquitous in architecture and construction. A large body of data structures and geometry processing algorithms based on them has been developed in the literature and adapted in construction of free-form surfaces. This type of re-meshing has many advantages especially the semi-regular ones, and significant progresses were made in quadrilateral mesh generation and processing during the last years. In this paper, we will study four algorithms behind planar quad meshes and their goals in order to fulfill the objectives. We will apply them on four input surfaces having different curvatures.
 
 # Construction
 
-In construction, planar quads should always be planar and their distribution on the mesh is preferably equidistant so that their size does not vary a lot. In the first section, the geometric properties of PQ meshes are introduced as well as their benefits over other ones. Therefore, the metrics and Figure_3 are split by type and explained graphically and mathematically.
+In construction, planar quads should always be planar and their distribution on the mesh is preferably equidistant so that their size does not vary a lot. In the first section, the geometric properties of PQ meshes are introduced as well as their benefits over other ones. Therefore, the metrics and measures are split by type and explained graphically and mathematically.
 
 
 ## PQ Geometric Properties
 
 ![The hinge is affected by the high Gaussian curvature on the surface of the *Yas Island Hotel By Zaha Hadid* [@de2011technique]. The difference between *PQ meshes* and *triangle meshes*.](MT_JPG/Figure_1.jpg){#fig:Figure_1}	
 
-A polygon face is planar if and only if its vertices $v_{n}$ *define a plane*. A triangle face is always planar, however a quadrangular face can be non-planar since the curvature plays a prominent role against the geometric property of a planar quad. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independent from its neighboring face's vertex see [@fig:Figure_1].
-
-
-
-Knowing that two parallel vectors in space, enclosed at each point by two other vectors that are not necessarily parallel, form a planar face [@glymph2004parametric]. We Consider each row of faces $f_{i,j}$ is a *PQ strip*. The latter is composed by vertices $\mathbf{v}_{i,j}$ with a valence  $\pm k/4 (k\in Z)$ where along each vertex a curve of family A and a curve of family B intersect see [@liu2006geometric]. N-geons can appear with a valence $k \neq 4$ so called singularities see [@fig:Figure_2]. 
+A polygon face is planar if and only if its vertices $v_{n}$ *define a plane*. A triangle face is always planar, however a quadrangular face can be non-planar since the curvature plays a prominent role against the geometric property of a planar quad. Such constraint is a disadvantage for *PQ meshes* over triangular ones. Thus, if the warping height exceeds a certain limit while measuring it, the four vertices of each of the faces should be independent from its neighboring face's vertex see [@fig:Figure_1]. Knowing that two parallel vectors in space, enclosed at each point by two other vectors that are not necessarily parallel, form a planar face [@glymph2004parametric]. We Consider each row of faces $f_{i,j}$ is a *PQ strip*. The latter is composed by vertices $\mathbf{v}_{i,j}$ with a valence  $\pm k/4 (k\in Z)$ where along each vertex a curve of family A and a curve of family B intersect see [@liu2006geometric]. N-geons can appear with a valence $k \neq 4$ so called singularities see [@fig:Figure_2]. 
 
 ![PQ strip and mesh valences and properties](MT_JPG/Figure_2.jpg){#fig:Figure_2}
 
@@ -53,7 +49,7 @@ The measurements and conditions applied to the elements of the mesh are:
 
 ## Several Pre-Processing Techniques
 
-Given four different meshes as inputs, several pre-processing techniques will be adapted in order to generate a *PQ mesh* with *planar faces*. The used techniques will depend on the surface type. Translation surfaces is an easy and fast algorithm to generate specific surfaces. However architecture free-form surfaces with high curvature require more complex algorithms to generate *PQ meshes* see [@fig:Figure_5].
+Given four different meshes as inputs with different curvatures, several pre-processing techniques will be adapted in order to generate a *PQ mesh* with *planar faces*. The used techniques will depend on the surface type. Translation surfaces is an easy and fast algorithm to generate specific surfaces. However architecture free-form surfaces with high curvature require more complex algorithms to generate *PQ meshes* see [@fig:Figure_5].
 
 ### Translation Surfaces
 
@@ -131,7 +127,7 @@ When the input is a mesh and not a surface, it is preferable to imply isotropic 
 ##### Alignment with the curvature [@mueller2018optimized].
 
 
-![Surface tangency extracted on each of the meshes $\mathbb{R}^{3}_{i}$ by computing the minimum $e_{1}$ and maximum $e_{2}$ *principle directions* in red and blue.](MT_JPG/Figure_14.png){#fig:Figure_14}
+![Surface tangency of the mesh having double curvature $\mathbb{R}^{3}_{3}$  by computing the minimum $e_{1}$ and maximum $e_{2}$ *principle directions* in red and blue.](MT_JPG/Figure_14.png){#fig:Figure_14}
 
 The quality of the mesh is always better when the panels are aligned with the curvature or the stress lines. Given four different meshes $\mathbb{R}^{3}$, the orthogonality is introduced for each of the meshes $\mathbb{R}^{3}_{i}$ by computing the *principle directions* $e_{1}$, $e_{2}$ and storing them in $[e_{1},e_{2}]$ see @fig:Figure_14. This method has been used by [@liu2011general].
 
@@ -159,9 +155,9 @@ The streamlines [$Pl_{i}$] are traced on the 2D maps after integrating the Vecto
 
 ##### Extracting the candidate PQ Meshes
 
-![The resulting candidate PQ meshes have a semi regular valence. a) $\mathbb{R}^3_{1}$ with one singularity $k_{PQ}=3_{1}$ . b) $\mathbb{R}^3_{2}$ with one singularity $k_{PQ}=5_{1}$. c) $\mathbb{R}^3_{3}$ with one singularity $k_{PQ}=3_{1}$.](MT_JPG/Figure_18){#fig:Figure_18}
+![The resulting candidate PQ mesh have a semi regular valence.](MT_JPG/Figure_18){#fig:Figure_18}
 
-Given the conjugate filed $[\mathbf{v_{i},w_{i}}]$ and the streamlines $Pl_{i}$, the meshes $\mathbb{R}^{3}$ are generated by retrieving the faces $f_{i}$ with the same vertex valence [@fig:Figure_18]. Nevertheless, the resulting meshes are not totally planar and require a further optimization.
+Given the conjugate filed $[\mathbf{v_{i},w_{i}}]$ and the streamlines $Pl_{i}$, the meshes $\mathbb{R}^{3}_{i}$ are generated by retrieving the faces $f_{i}$ with the same vertex valence [@fig:Figure_18]. Nevertheless, the resulting meshes are not totally planar and require a further optimization. The mesh with a positive curvature $\mathbb{R}^3_{1}$ possess one singularity $k_{PQ}=3_{1}$, the mesh with negative curvature $\mathbb{R}^3_{2}$ has singularity $k_{PQ}=5_{1}$ and the finally the mesh with double curvature as seen in @fig:Figure_18 $\mathbb{R}^3_{3}$ possess one singularity $k_{PQ}=3_{1}$. To see the other resulting meshes $k_{PQ}=3_{1}$ and $\mathbb{R}^3_{2}$ see the appendix.
 
 #### Generating  quad-dominant meshes via principle curvature networks
 
@@ -169,7 +165,7 @@ This method is different from the previous one. The network of curves $[Pl]$ wil
 
 ##### Computing curvature networks
 
-![Curve network $Pl_{i}$ computed using [@Millipede] on each of the input meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_19.jpg){#fig:Figure_19}
+![Curve network $Pl_{i}$ computed using [@Millipede] on each of the input mesh $\mathbb{R}^3_{3}$.](MT_JPG/Figure_19.jpg){#fig:Figure_19}
 
 The *principle curvature networks* $[Pl]$ are generated automatically by reparametrizing the input meshes $\mathbb{R}^3_{i}$ see [@fig:Figure_19].
 
@@ -181,9 +177,9 @@ The *principle curvature networks* $[Pl]$ are generated automatically by reparam
 
 ##### Extracting the candidate PQ meshes
 
-![The resulting candidate PQ meshes have a semi regular valence. a) $\mathbb{R}^3_{1}$ with four singularities $k_{PQ}=3_{4}$ . b) $\mathbb{R}^3_{2}$ with two singularities $k_{PQ}=5_{2}$. c) $\mathbb{R}^3_{3}$ with one singularity $k_{PQ}=3_{1}$ and one singularity $k_{PQ}=5_{1}$.](MT_JPG/Figure_21.jpg){#fig:Figure_21}
+![The resulting candidate PQ meshes have a semi regular valence.](MT_JPG/Figure_21.jpg){#fig:Figure_21}
 
-After mapping the *curve networks* and rebuilding the quad mesh on the unit plane, it is now possible to remap the meshes on input meshes $\mathbb{R}^3_{i}$ see  [@fig:Figure_21].
+After mapping the *curve networks* and rebuilding the quad mesh on the unit plane, it is now possible to remap the meshes on input geometry.The surface with a double curvature $\mathbb{R}^3_{1}$ has four singularities $k_{PQ}=3_{4}$, the one with a negative curvature $\mathbb{R}^3_{2}$ has two singularities $k_{PQ}=5_{2}$, the one with a double curvature $\mathbb{R}^3_{3}$ has one singularity $k_{PQ}=3_{1}$ and one singularity $k_{PQ}=5_{1}$ see [@fig:Figure_21] and finally the free-form surface $\mathbb{R}^3_{4}$ possess three singularities $k_{PQ}=3_{3}$ and two singularities $k_{PQ}=5_{2}$ see the appendix.
 
 ### Conical meshes
 
@@ -284,4 +280,4 @@ After analyzing the panels under their required goals for them to be planar, the
 
 # Further work
 
-For further research the boundary will be taken in consideration while generating the PQ meshes. The fourth mesh $\mathbb{R}^3_{4}$ that failed in the frame field algorithm has to be developped accordingly to its curvature for it to unwrap while avoiding collisions.
+For further research the boundary will be taken in consideration while generating the PQ meshes. The fourth mesh $\mathbb{R}^3_{4}$ that failed in the frame field algorithm has to be developed accordingly to its curvature for it to unwrap while avoiding collisions.
