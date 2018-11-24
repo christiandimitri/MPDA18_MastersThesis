@@ -228,6 +228,7 @@ For each vertex $\mathbf{v}_{i,j}$ on the mesh $\mathbb{R}^3$ minimize the sum o
 In order to optimize the panels, the planarity $\delta_{PQ}$ is measured in radians, diagonals aspect ratio $\eta_{PQ}$ and the warping height $h$ are measured in cm, and finally the area $\eta_{PQ}$ and the variance are measured in $cm^2$ on the the meshes generated via conjugate curve networks as seen in [@fig:Figure_27 and @fig:Figure_28].
 
 ![The mesh generated via frame field results are shown and measured above.](MT_JPG/Figure_27.jpg){#fig:Figure_27}
+
 ![The mesh generated via conformal mapping are shown and measured above.](MT_JPG/Figure_28.jpg){#fig:Figure_28}
 
 #### Optimization
@@ -235,11 +236,12 @@ In order to optimize the panels, the planarity $\delta_{PQ}$ is measured in radi
 After analyzing the panels under their required goals for them to be planar, the elements are optimized using kangaroo2 solver [@Kangaroo3d]. The results have been reduced noticeably see in [@fig:Figure_29 and @fig:Figure_30].
 
 ![The mesh generated via frame field optimized are shown above.](MT_JPG/Figure_29.jpg){#fig:Figure_29}
+
 ![The mesh generated via conformal mapping optimized are shown above.](MT_JPG/Figure_30.jpg){#fig:Figure_30}
 
 ## Subdivision Strategy (Starting with a Coarse Quad-Dominant mesh)
 
-### Subdivision Strategy principles
+### Principles
 
 ![Left: Singularities with negative indices. Right: Singularities with positive indices.](MT_JPG/Figure_31.jpg){#fig:Figure_31}
 
@@ -268,11 +270,13 @@ The catmull-clark algorithm is applied to the coarse meshes. Using kangaroo2 [@K
 After analyzing the panels under their required goals for them to be planar, the elements are optimized using kangaroo2 solver [@Kangaroo3d]. The results have been reduced noticeably see in [@fig:Figure_34 and @fig:Figure_35].
 
 ![The mesh generated via frame field optimized are shown above.](MT_JPG/Figure_35.jpg){#fig:Figure_35}
+
 ![The mesh generated via conformal mapping optimized are shown above.](MT_JPG/Figure_36.jpg){#fig:Figure_36}
 
 ## Comparison & Synthesis
 
 ![Graph showing the MAD of Apect ratio in cm over the planarity in rad for the four meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_37.jpg){#fig:Figure_37}
+
 ![Graph showing the MAD of Areas in $cm^2$ over the warping height in cm for the four meshes $\mathbb{R}^3_{i}$.](MT_JPG/Figure_38.jpg){#fig:Figure_38}
 
 # Conclusion
